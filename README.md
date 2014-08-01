@@ -1,4 +1,4 @@
 cassandra-connector
 ===================
 
-Connector for using Cassandra DB
+Scala connector for using Cassandra DB
