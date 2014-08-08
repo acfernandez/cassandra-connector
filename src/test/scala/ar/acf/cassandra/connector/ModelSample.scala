@@ -1,12 +1,11 @@
-package connector
+package ar.acf.cassandra.connector
 
 import scala.concurrent.Future
 
-import com.datastax.driver.core.{ ResultSet, Row }
+import com.datastax.driver.core.ResultSet
+import com.datastax.driver.core.Row
 import com.newzly.phantom.CassandraTable
 import com.newzly.phantom.Implicits._
-
-import connectors.CassandraConnector
 
 
 case class Model(
@@ -26,7 +25,7 @@ sealed class Record extends CassandraTable[Record, Model] {
 
 object Record extends Record with CassandraConnector {
   
-  override lazy val tableName = "records"
+  override lazy val tableName = "event"
   
   def read(id: String): Future[Option[Model]] = select.where(_.name eqs id).one
   

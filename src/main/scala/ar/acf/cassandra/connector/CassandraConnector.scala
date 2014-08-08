@@ -1,12 +1,15 @@
-package connectors
+package ar.acf.cassandra.connector
 
-import scala.concurrent. { blocking, Future }
-import com.datastax.driver.core.{ Cluster, Session }
-import com.newzly.phantom.Implicits._
+import scala.concurrent.Future
+import scala.concurrent.blocking
+import com.datastax.driver.core.Cluster
+import com.newzly.phantom.Implicits.context
+import com.newzly.phantom.CassandraTable
+import com.datastax.driver.core.Session
 
 object CassandraConnector {
   
-  val keySpace = "migrator"
+  val keySpace = "mykeyspace"
 
   lazy val cluster =  Cluster.builder()
     .addContactPoint("localhost")

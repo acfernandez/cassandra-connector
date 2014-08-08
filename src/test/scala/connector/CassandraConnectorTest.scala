@@ -1,5 +1,0 @@
-package connector
-
-object CassandraConnectorTest {
-
-}
